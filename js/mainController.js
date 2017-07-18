@@ -59,6 +59,7 @@ angular
           $scope.boardId = $rootScope.boardId = board.val().boardId;
           $scope.boardContext = $rootScope.boardContext = board.val().boardContext;
           $scope.loading = false;
+          setTimeout(function() {window.EmojiPicker.init()}, 100);
         }, function() {
           window.location.hash = '';
           location.reload();
@@ -217,6 +218,7 @@ angular
       function addMessageCallback(message) {
         var id = message.key;
         angular.element($('#' + id)).scope().isEditing = true;
+        window.EmojiPicker.init()
         $('#' + id).find('textarea').focus();
       }
 
